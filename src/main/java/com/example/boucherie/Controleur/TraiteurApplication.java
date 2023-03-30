@@ -1,4 +1,4 @@
-package com.example.boucherie;
+package com.example.boucherie.Controleur;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

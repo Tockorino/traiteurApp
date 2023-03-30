@@ -1,4 +1,4 @@
-package com.example.boucherie;
+package com.example.boucherie.Views;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
