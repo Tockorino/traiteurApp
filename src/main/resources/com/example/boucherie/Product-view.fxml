@@ -9,7 +9,7 @@
 
 <AnchorPane minWidth="350.0" prefHeight="390.0" prefWidth="420.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
     <children>
-        <VBox prefHeight="346.0" prefWidth="420.0" AnchorPane.bottomAnchor="44.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <VBox fx:id="VboxListeArticle" prefHeight="346.0" prefWidth="420.0" AnchorPane.bottomAnchor="44.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <TitledPane animated="false" text="Viande ">
               <content>
@@ -29,18 +29,18 @@
          </children></VBox>
       <AnchorPane layoutY="417.0" prefHeight="40.0" prefWidth="420.0" style="-fx-border-color: white;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
-              <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="76.0" text="Ajouter &gt;&gt;" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0" />
-            <Label layoutX="7.0" layoutY="7.0" prefHeight="30.0" prefWidth="204.0" text="Carpaccio de boeuf" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="2.0" AnchorPane.topAnchor="5.0">
+              <Button fx:id="ButtonAjouter" mnemonicParsing="false" prefHeight="26.0" prefWidth="76.0" text="Ajouter &gt;&gt;" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0" />
+            <Label fx:id="LabelNomProduit" layoutX="7.0" layoutY="7.0" prefHeight="30.0" prefWidth="204.0" text="Carpaccio de boeuf" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="2.0" AnchorPane.topAnchor="5.0">
                <font>
                   <Font name="Calibri Bold" size="17.0" />
                </font>
             </Label>
-            <Label alignment="CENTER_RIGHT" layoutX="226.0" layoutY="12.0" prefHeight="18.0" prefWidth="50.0" text="5,40$" textFill="#219912" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="143.6" AnchorPane.topAnchor="5.0">
+            <Label fx:id="LabelPrixProduit" alignment="CENTER_RIGHT" layoutX="226.0" layoutY="12.0" prefHeight="18.0" prefWidth="50.0" text="5,40$" textFill="#219912" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="143.6" AnchorPane.topAnchor="5.0">
                <font>
                   <Font name="Calibri Bold" size="17.0" />
                </font>
             </Label>
-            <Label alignment="CENTER_RIGHT" layoutX="276.0" layoutY="8.0" prefHeight="23.0" prefWidth="50.0" text="200g" textAlignment="RIGHT" AnchorPane.bottomAnchor="12.0" AnchorPane.rightAnchor="90.0" AnchorPane.topAnchor="7.0">
+            <Label fx:id="LabelPoidProduit" alignment="CENTER_RIGHT" layoutX="276.0" layoutY="8.0" prefHeight="23.0" prefWidth="50.0" text="200g" textAlignment="RIGHT" AnchorPane.bottomAnchor="12.0" AnchorPane.rightAnchor="90.0" AnchorPane.topAnchor="7.0">
                <font>
                   <Font name="Calibri Bold" size="17.0" />
                </font>

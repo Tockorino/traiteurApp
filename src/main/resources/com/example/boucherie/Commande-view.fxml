@@ -14,10 +14,11 @@
                   <Font size="11.0" />
                </font>
             </Label>
+            <VBox fx:id="VboxListeCommande" prefHeight="415.0" prefWidth="206.0" />
          </children></VBox>
       <AnchorPane layoutY="435.0" prefHeight="30.0" prefWidth="250.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
-            <Label alignment="CENTER_RIGHT" layoutX="136.0" layoutY="7.0" prefHeight="23.0" prefWidth="83.0" text=" 0,00$" textFill="#219912" AnchorPane.bottomAnchor="8.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+            <Label fx:id="labelCommandeTotal" alignment="CENTER_RIGHT" layoutX="136.0" layoutY="7.0" prefHeight="23.0" prefWidth="83.0" text=" 0,00$" textFill="#219912" AnchorPane.bottomAnchor="8.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
                <font>
                   <Font name="Calibri Bold" size="17.0" />
                </font>

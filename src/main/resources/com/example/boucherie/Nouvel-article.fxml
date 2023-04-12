@@ -19,24 +19,24 @@
             <Font name="Calibri" size="14.0" />
          </font>
       </Label>
-      <TextField layoutX="51.0" layoutY="19.0" prefHeight="26.0" prefWidth="335.0" />
-      <TextField layoutX="51.0" layoutY="54.0" prefHeight="26.0" prefWidth="335.0" />
-      <RadioButton layoutX="51.0" layoutY="92.0" mnemonicParsing="false" text="Prix au kilo">
+      <TextField fx:id="TextNom" layoutX="51.0" layoutY="19.0" prefHeight="26.0" prefWidth="335.0" />
+      <TextField fx:id="TextPrix" layoutX="51.0" layoutY="54.0" prefHeight="26.0" prefWidth="335.0" />
+      <RadioButton fx:id="RadioButtonKilo" layoutX="51.0" layoutY="92.0" mnemonicParsing="false" text="Prix au kilo">
          <font>
             <Font name="Calibri" size="14.0" />
          </font>
       </RadioButton>
-      <RadioButton layoutX="51.0" layoutY="111.0" mnemonicParsing="false" text="Prix à la pièce">
+      <RadioButton fx:id="RadioButtonPiece" layoutX="51.0" layoutY="111.0" mnemonicParsing="false" text="Prix à la pièce">
          <font>
             <Font name="Calibri" size="14.0" />
          </font>
       </RadioButton>
-      <Button layoutX="51.0" layoutY="142.0" mnemonicParsing="false" text="Ajouter">
+      <Button fx:id="ButtonAjouterArticle" layoutX="51.0" layoutY="142.0" mnemonicParsing="false" text="Ajouter">
          <font>
             <Font name="Calibri" size="13.0" />
          </font>
       </Button>
-      <Button layoutX="114.0" layoutY="142.0" mnemonicParsing="false" text="Annuler">
+      <Button fx:id="ButtonAnnulerArticle" layoutX="114.0" layoutY="142.0" mnemonicParsing="false" text="Annuler">
          <font>
             <Font name="Calibri" size="13.0" />
          </font>
