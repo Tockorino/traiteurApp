@@ -1,4 +1,4 @@
 package com.example.boucherie.Views;
 
-public class CenterViewController {
+public class CommandeViewController {
 }

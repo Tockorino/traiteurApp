@@ -1,6 +1,4 @@
 package com.example.boucherie.Views;
 
-public class MainViewController {
-
-
+public class EncaisserController {
 }
