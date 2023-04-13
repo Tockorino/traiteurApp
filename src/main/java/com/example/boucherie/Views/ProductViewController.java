@@ -38,12 +38,6 @@ public class ProductViewController {
             // Charger le fichier FXML "Nouvel-Article.fxml"
             Parent root = FXMLLoader.load(getClass().getResource("Nouvel-Article.fxml"));
 
-            // Créer une nouvelle scène
-        Scene scene = new Scene(root, 400,300);
-        Stage stage = new Stage();
-        //Stage.setTitle("Nouvel-Article");
-        //Stage.setScene(scene);
-        //Stage.show();
 
 
     }
