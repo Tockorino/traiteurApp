@@ -1,5 +1,6 @@
 package com.example.boucherie.Controleur;
 
+import com.example.boucherie.Views.TraiteurController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -18,7 +19,7 @@ public class TraiteurApplication extends Application {
     private ArrayList<Button> Plats = new ArrayList<Button>();
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(TraiteurApplication.class.getResource("Main-view.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(TraiteurController.class.getResource("Traiteur-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 320, 240);
         stage.setTitle("bonjour je suis traiteur");
         stage.setScene(scene);
