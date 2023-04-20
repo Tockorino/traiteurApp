@@ -19,11 +19,27 @@ public class TraiteurApplication extends Application {
     private ArrayList<Button> Plats = new ArrayList<Button>();
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(TraiteurController.class.getResource("Traiteur-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load());
+        FXMLLoader fxmlLoader1 = new FXMLLoader(TraiteurController.class.getResource("Traiteur-view.fxml"));
+        Scene scene1 = new Scene(fxmlLoader1.load());
         stage.setTitle("bonjour je suis traiteur");
-        stage.setScene(scene);
+        stage.setScene(scene1);
         stage.show();
+
+        FXMLLoader fxmlLoader2 = new FXMLLoader(TraiteurController.class.getResource("Balances-view.fxml"));
+        Scene scene2 = new Scene(fxmlLoader2.load());
+        Stage stage2 = new Stage();
+        stage2.setTitle("Balances");
+        stage2.setScene(scene2);
+        stage2.show();
+
+        FXMLLoader fxmlLoader3 = new FXMLLoader(TraiteurController.class.getResource("Commande-view.fxml"));
+        Scene scene3 = new Scene(fxmlLoader3.load());
+        Stage stage3 = new Stage();
+        stage3.setTitle("Commande");
+        stage3.setScene(scene3);
+        stage3.show();
+
+
 
         Viandes.add(new Button("Viande"));
         Viandes.add(new Button("Steak"));
@@ -53,6 +69,7 @@ public class TraiteurApplication extends Application {
                 Button button = new Button(bouton.getText());
                 titledPane.setContent(button);
             }
+
         }
 
     }

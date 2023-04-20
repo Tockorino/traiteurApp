@@ -36,7 +36,12 @@ public class ProductViewController {
     @FXML
     void OpenNouvelArticle(ActionEvent event) throws IOException {
             // Charger le fichier FXML "Nouvel-Article.fxml"
-            Parent root = FXMLLoader.load(getClass().getResource("Nouvel-Article.fxml"));
+        FXMLLoader fxmlLoader4 = new FXMLLoader(TraiteurController.class.getResource("Nouvel-Article-view.fxml"));
+        Scene scene4 = new Scene(fxmlLoader4.load());
+        Stage stage4 = new Stage();
+        stage4.setTitle("Nouveaux Article");
+        stage4.setScene(scene4);
+        stage4.show();
 
 
 
