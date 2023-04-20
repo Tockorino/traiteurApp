@@ -20,7 +20,7 @@ public class TraiteurApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(TraiteurController.class.getResource("Traiteur-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 320, 240);
+        Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("bonjour je suis traiteur");
         stage.setScene(scene);
         stage.show();
