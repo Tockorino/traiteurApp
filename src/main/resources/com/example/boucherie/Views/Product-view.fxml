@@ -14,6 +14,7 @@
     <children>
         <VBox fx:id="VboxListeArticle" prefHeight="346.0" prefWidth="420.0" AnchorPane.bottomAnchor="44.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
+            <!--
             <TitledPane animated="false" text="Viande ">
               <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
@@ -59,6 +60,7 @@
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="300.0" />
               </content>
             </TitledPane>
+            -->
          </children></VBox>
       <AnchorPane layoutY="417.0" prefHeight="40.0" prefWidth="564.0" style="-fx-border-color: white;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
