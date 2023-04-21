@@ -60,6 +60,7 @@ public class ProductViewController {
         Viandes.add(new Button("Viande"));
         Viandes.add(new Button("Steak"));
         Viandes.add(new Button("Carbonade"));
+        Viandes.add(new Button("Entrecôte"));
         Viandes.add(new Button("Ajouter un article"));
 
         Volailles.add(new Button("Volaille"));
@@ -70,7 +71,10 @@ public class ProductViewController {
         Accompagnement.add(new Button("Accompagnement"));
         Accompagnement.add(new Button("Pomme de terre"));
         Accompagnement.add(new Button("Purrée"));
+        Accompagnement.add(new Button("Patate douce"));
         Accompagnement.add(new Button("Ajouter un article"));
+
+
 
         categories.add(Accompagnement);
         categories.add(Volailles);

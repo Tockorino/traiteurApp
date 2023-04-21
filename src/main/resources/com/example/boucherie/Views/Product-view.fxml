@@ -70,7 +70,7 @@
                   <Font name="Calibri Bold" size="17.0" />
                </font>
             </Label>
-            <Label fx:id="LabelPrixProduit" alignment="CENTER_RIGHT" layoutX="350.0" layoutY="10.0" prefHeight="25.0" prefWidth="150.0" text="0$" textFill="#219912" AnchorPane.bottomAnchor="9.0" AnchorPane.rightAnchor="199.0" AnchorPane.topAnchor="10.0">
+            <Label fx:id="LabelPrixProduit" alignment="CENTER_RIGHT" layoutX="350.0" layoutY="10.0" prefHeight="25.0" prefWidth="150.0" text="0€" textFill="#219912" AnchorPane.bottomAnchor="9.0" AnchorPane.rightAnchor="199.0" AnchorPane.topAnchor="10.0">
                <font>
                   <Font name="Calibri Bold" size="17.0" />
                </font>

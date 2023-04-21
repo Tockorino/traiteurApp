@@ -9,7 +9,7 @@
       <AnchorPane prefHeight="200.0" prefWidth="200.0">
          <children>
             <fx:include fx:id="commandeView" source="Commande-view.fxml" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-            <fx:include fx:id="encaisser" source="Encaisser.fxml" AnchorPane.bottomAnchor="0.0" />
+            <fx:include fx:id="encaisser" source="Encaisser-view.fxml" AnchorPane.bottomAnchor="0.0" />
          </children>
       </AnchorPane>
 

@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane minWidth="150.0" prefHeight="450.0" prefWidth="208.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane minWidth="180.0" prefHeight="450.0" prefWidth="240.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <VBox prefHeight="415.0" prefWidth="250.0" style="-fx-border-color: white;" AnchorPane.bottomAnchor="35.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -18,7 +18,7 @@
          </children></VBox>
       <AnchorPane layoutY="435.0" prefHeight="30.0" prefWidth="250.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
-            <Label fx:id="labelCommandeTotal" alignment="CENTER_RIGHT" layoutX="136.0" layoutY="7.0" prefHeight="23.0" prefWidth="83.0" text=" 0,00$" textFill="#219912" AnchorPane.bottomAnchor="8.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+            <Label fx:id="labelCommandeTotal" alignment="CENTER_RIGHT" layoutX="136.0" layoutY="7.0" prefHeight="23.0" prefWidth="83.0" text=" 0,00€" textFill="#219912" AnchorPane.bottomAnchor="8.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
                <font>
                   <Font name="Calibri Bold" size="17.0" />
                </font>

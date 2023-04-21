@@ -11,6 +11,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.ArrayList;
 
+
 public class TraiteurApplication extends Application {
 
     @Override
@@ -34,6 +35,13 @@ public class TraiteurApplication extends Application {
         stage3.setTitle("Commande");
         stage3.setScene(scene3);
         stage3.show();
+
+        FXMLLoader fxmlLoader4 = new FXMLLoader(TraiteurController.class.getResource("Terminal-view.fxml"));
+        Scene scene4 = new Scene(fxmlLoader4.load());
+        Stage stage4 = new Stage();
+        stage4.setTitle("Terminal");
+        stage4.setScene(scene4);
+        stage4.show();
 
 
 
