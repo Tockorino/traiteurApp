@@ -3,12 +3,12 @@ package com.example.boucherie.Views;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TitledPane;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
@@ -20,8 +20,8 @@ public class ProductViewController {
 
     private ArrayList<ArrayList<Button>> categories = new ArrayList<ArrayList<Button>>();
     private ArrayList<Button> Viandes = new ArrayList<Button>();
-    private ArrayList<Button> Fruits = new ArrayList<Button>();
-    private ArrayList<Button> Plats = new ArrayList<Button>();
+    private ArrayList<Button> Volailles = new ArrayList<Button>();
+    private ArrayList<Button> Accompagnement = new ArrayList<Button>();
 
 
 
@@ -62,27 +62,30 @@ public class ProductViewController {
         Viandes.add(new Button("Carbonade"));
         Viandes.add(new Button("Ajouter un article"));
 
-        Fruits.add(new Button("Fruits"));
-        Fruits.add(new Button("Poulet"));
-        Fruits.add(new Button("Dinde"));
-        Fruits.add(new Button("Ajouter un article"));
+        Volailles.add(new Button("Volaille"));
+        Volailles.add(new Button("Poulet"));
+        Volailles.add(new Button("Dinde"));
+        Volailles.add(new Button("Ajouter un article"));
 
-        Plats.add(new Button("Accompagnement"));
-        Plats.add(new Button("Pomme de terre"));
-        Plats.add(new Button("Purrée"));
-        Plats.add(new Button("Ajouter un article"));
+        Accompagnement.add(new Button("Accompagnement"));
+        Accompagnement.add(new Button("Pomme de terre"));
+        Accompagnement.add(new Button("Purrée"));
+        Accompagnement.add(new Button("Ajouter un article"));
 
-        categories.add(Fruits);
-        categories.add(Plats);
+        categories.add(Accompagnement);
+        categories.add(Volailles);
         categories.add(Viandes);
 
-        for (ArrayList<Button> cat : categories) {
+        for (int i = 0; i < categories.size(); i++) {
             TitledPane titledPane = new TitledPane();
-            titledPane.setText(cat.get(0).getText());
+            titledPane.setText(categories.get(i).get(0).getText());
+            titledPane.minWidth(400);
+            titledPane.minHeight(500);
+            FlowPane flowPane = new FlowPane();
             VboxListeArticle.getChildren().add(titledPane);
-            for (Button bouton : cat) {
-                Button button = new Button(bouton.getText());
-                titledPane.setContent(button);
+            titledPane.setContent(flowPane);
+            for (int j = 1; j < categories.get(i).size(); j++) {
+                flowPane.getChildren().add(categories.get(i).get(j));
             }
 
         }
