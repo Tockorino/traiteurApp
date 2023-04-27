@@ -48,7 +48,7 @@ public class ProductViewController {
         FXMLLoader fxmlLoader5 = new FXMLLoader(TraiteurController.class.getResource("Nouvel-Article-view.fxml"));
         Scene scene5 = new Scene(fxmlLoader5.load());
         Stage stage5 = new Stage();
-        stage5.setTitle("Nouveaux Article");
+        stage5.setTitle("Nouveaux Articles");
         stage5.setScene(scene5);
         stage5.show();
 
