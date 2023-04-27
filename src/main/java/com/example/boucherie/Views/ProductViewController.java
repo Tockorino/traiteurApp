@@ -18,10 +18,10 @@ import java.util.ArrayList;
 public class ProductViewController {
 
 
-    private ArrayList<ArrayList<Button>> categories = new ArrayList<ArrayList<Button>>();
-    private ArrayList<Button> Viandes = new ArrayList<Button>();
-    private ArrayList<Button> Volailles = new ArrayList<Button>();
-    private ArrayList<Button> Accompagnement = new ArrayList<Button>();
+    private ArrayList<ArrayList<String>> categories = new ArrayList<ArrayList<String>>();
+    private ArrayList<String> Viandes = new ArrayList<String>();
+    private ArrayList<String> Volailles = new ArrayList<String>();
+    private ArrayList<String> Accompagnement = new ArrayList<String>();
 
 
 
@@ -57,22 +57,22 @@ public class ProductViewController {
     public void initialize() {
 
 
-        Viandes.add(new Button("Viande"));
-        Viandes.add(new Button("Steak"));
-        Viandes.add(new Button("Carbonade"));
-        Viandes.add(new Button("Entrecôte"));
-        Viandes.add(new Button("Ajouter un article"));
+        Viandes.add("Viande");
+        Viandes.add("Steak");
+        Viandes.add("Carbonade");
+        Viandes.add("Entrecôte");
+        Viandes.add("Ajouter un article");
 
-        Volailles.add(new Button("Volaille"));
-        Volailles.add(new Button("Poulet"));
-        Volailles.add(new Button("Dinde"));
-        Volailles.add(new Button("Ajouter un article"));
+        Volailles.add("Volaille");
+        Volailles.add("Poulet");
+        Volailles.add("Dinde");
+        Volailles.add("Ajouter un article");
 
-        Accompagnement.add(new Button("Accompagnement"));
-        Accompagnement.add(new Button("Pomme de terre"));
-        Accompagnement.add(new Button("Purrée"));
-        Accompagnement.add(new Button("Patate douce"));
-        Accompagnement.add(new Button("Ajouter un article"));
+        Accompagnement.add("Accompagnement");
+        Accompagnement.add("Pomme de terre");
+        Accompagnement.add("Purrée");
+        Accompagnement.add("Patate douce");
+        Accompagnement.add("Ajouter un article");
 
 
 
@@ -82,14 +82,33 @@ public class ProductViewController {
 
         for (int i = 0; i < categories.size(); i++) {
             TitledPane titledPane = new TitledPane();
-            titledPane.setText(categories.get(i).get(0).getText());
+            titledPane.setText(categories.get(i).get(0));
             titledPane.minWidth(400);
             titledPane.minHeight(500);
             FlowPane flowPane = new FlowPane();
             VboxListeArticle.getChildren().add(titledPane);
             titledPane.setContent(flowPane);
             for (int j = 1; j < categories.get(i).size(); j++) {
-                flowPane.getChildren().add(categories.get(i).get(j));
+                Button ButtonArticle = new Button(categories.get(i).get(j));
+                if(j==categories.get(i).size()-1){
+                    ButtonArticle.setOnAction(event -> {
+                        try {
+                            OpenNouvelArticle(event);
+                        } catch (IOException e) {
+                            throw new RuntimeException(e);
+                        }
+                    });
+                }
+                else {
+                   // ButtonArticle.setOnAction(event -> {
+                     //   try {
+                          //  ajouterArticleCommande(event);
+                        //} catch (IOException e) {
+                        //    throw new RuntimeException(e);
+                      ///  }
+                   // });
+                }
+                flowPane.getChildren().add(ButtonArticle);
             }
 
         }
