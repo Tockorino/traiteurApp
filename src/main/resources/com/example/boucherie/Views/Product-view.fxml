@@ -12,9 +12,9 @@
 
 <AnchorPane minWidth="343.0" prefHeight="598.0" prefWidth="699.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.boucherie.Views.ProductViewController">
     <children>
-        <VBox fx:id="VboxListeArticle" prefHeight="346.0" prefWidth="420.0" AnchorPane.bottomAnchor="44.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <VBox fx:id="vboxListeArticle" prefHeight="346.0" prefWidth="420.0" AnchorPane.bottomAnchor="44.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <!--
+       <!--
             <TitledPane animated="false" text="Viande ">
               <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">

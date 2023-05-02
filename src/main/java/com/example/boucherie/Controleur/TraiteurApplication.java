@@ -1,5 +1,7 @@
 package com.example.boucherie.Controleur;
 
+import com.example.boucherie.Models.Articles;
+import com.example.boucherie.Models.Categories;
 import com.example.boucherie.Views.TraiteurController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -10,12 +12,19 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 
 public class TraiteurApplication extends Application {
 
+
+    public static List<Categories> categories = new ArrayList<>();
+
     @Override
     public void start(Stage stage) throws IOException {
+
+        listeCategories();
+
         FXMLLoader fxmlLoader1 = new FXMLLoader(TraiteurController.class.getResource("Traiteur-view.fxml"));
         Scene scene1 = new Scene(fxmlLoader1.load());
         stage.setTitle("bonjour je suis traiteur");
@@ -45,6 +54,30 @@ public class TraiteurApplication extends Application {
 
 
 
+    }
+
+    private static void listeCategories() {
+        Categories fruit = new Categories();
+        fruit.setNom("Fruit");
+        Categories plat = new Categories();
+        plat.setNom("Plat");
+        Categories viandes = new Categories();
+        viandes.setNom("Viandes");
+
+        Articles pomme = new Articles("pomme", 1.5f, true);
+        fruit.articles.add(pomme);
+        Articles poire = new Articles("poire", 1.5f, true);
+        fruit.articles.add(poire);
+
+        Articles tartiflette = new Articles("tartiflette", 1.5f, false);
+        plat.articles.add(tartiflette);
+
+        Articles poulet = new Articles("poulet", 1.5f, false);
+        viandes.articles.add(poulet);
+
+        categories.add(fruit);
+        categories.add(plat);
+        categories.add(viandes);
     }
 
     public static void main(String[] args) {
