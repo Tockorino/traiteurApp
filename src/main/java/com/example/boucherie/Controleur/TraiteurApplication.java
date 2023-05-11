@@ -65,7 +65,7 @@ public class TraiteurApplication extends Application {
         viandes.setNom("Viandes");
 
         Articles pomme = new Articles("pomme", 1.5f, true);
-        fruit.articles.add(pomme);
+        fruit.articles.add (pomme);
         Articles poire = new Articles("poire", 1.5f, true);
         fruit.articles.add(poire);
 

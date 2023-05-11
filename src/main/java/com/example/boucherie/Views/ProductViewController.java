@@ -71,7 +71,7 @@ public class ProductViewController {
                     System.err.println("problem");
                 }
             });
-
+            flowPane.getChildren().add(buttonNewArticle);
         }
 
 
