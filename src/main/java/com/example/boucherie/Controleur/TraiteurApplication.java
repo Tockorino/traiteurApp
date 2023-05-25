@@ -1,3 +1,4 @@
+/*
 package com.example.boucherie.Controleur;
 
 import com.example.boucherie.Models.Articles;
@@ -83,4 +84,4 @@ public class TraiteurApplication extends Application {
     public static void main(String[] args) {
         launch();
     }
-}
+}*/

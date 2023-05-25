@@ -8,6 +8,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -15,13 +18,20 @@ import java.util.List;
 
 public class TraiteurApplication extends Application {
 
-
+    public static List<String> categorieListe = new ArrayList<>();
+    public static boolean existe = false;
     public static List<Categories> categories = new ArrayList<>();
-
+    private static File file = new File("ListeArticles.txt");
     @Override
     public void start(Stage stage) throws IOException {
 
-        listeCategories();
+        if(file.exists()) {
+            listeCategories();
+        }
+        else{
+            file.createNewFile();
+        }
+
         System.out.println(TraiteurController.class.getResource(""));
         FXMLLoader fxmlLoader1 = new FXMLLoader(TraiteurController.class.getResource("Traiteur-view.fxml"));
         Scene scene1 = new Scene(fxmlLoader1.load());
@@ -37,14 +47,46 @@ public class TraiteurApplication extends Application {
         stage2.show();
 
 
-
-
-
-
-
     }
 
     private static void listeCategories() {
+
+        try (BufferedReader br = new BufferedReader(new FileReader(file))) {
+                String line = br.readLine();
+                while(line != null) {
+                    String categorieNom = line;
+                    for (String cat : categorieListe) {
+                        if (cat.equals(categorieNom)) {
+                            existe = true;
+                            break;
+                        }
+                    }
+                    if (!existe) {
+                        categorieListe.add(categorieNom);
+                        //ajouter la liste de catégories
+                        Categories cat = new Categories();
+                        cat.setNom(categorieNom);
+                        categories.add(cat);
+                    }
+
+                    String article = br.readLine();
+                    String prix = br.readLine();
+                    String piece = br.readLine();
+                    Articles articles = new Articles(article, Float.parseFloat(prix), Boolean.parseBoolean(piece));
+                    for (Categories cat : categories) {
+                        if (cat.getNom().equals(categorieNom)) {
+                            cat.articles.add(articles);
+                            break;
+                        }
+                    }
+                    existe = false;
+                    line = br.readLine();
+                }
+        } catch (IOException ex) {
+            throw new RuntimeException(ex);
+        }
+        /*
+        // Création des catégories manuellement
         Categories fruit = new Categories();
         fruit.setNom("Fruit");
         Categories plat = new Categories();
@@ -66,9 +108,10 @@ public class TraiteurApplication extends Application {
         categories.add(fruit);
         categories.add(plat);
         categories.add(viandes);
+        */
     }
 
-    public static void main(String[] args) {
+        public static void main(String[] args) {
         launch();
     }
 }

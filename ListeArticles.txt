@@ -1,0 +1,12 @@
+Plats
+Boeuf bourguignon
+1.5
+false
+Fruits
+Pomme
+1.5
+true
+Viandes
+steak
+2
+false
