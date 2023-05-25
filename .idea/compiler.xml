@@ -6,6 +6,9 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="Traiteur" />
+        <module name="Client" />
+        <module name="TerminalPaiement" />
         <module name="Boucherie" />
       </profile>
     </annotationProcessing>
