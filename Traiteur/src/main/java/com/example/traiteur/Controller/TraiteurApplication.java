@@ -21,7 +21,7 @@ public class TraiteurApplication extends Application {
     public static List<String> categorieListe = new ArrayList<>();
     public static boolean existe = false;
     public static List<Categories> categories = new ArrayList<>();
-    private static File file = new File("ListeArticles.txt");
+    public static File file = new File("ListeArticles.txt");
     @Override
     public void start(Stage stage) throws IOException {
 
@@ -85,6 +85,8 @@ public class TraiteurApplication extends Application {
         } catch (IOException ex) {
             throw new RuntimeException(ex);
         }
+
+
         /*
         // Création des catégories manuellement
         Categories fruit = new Categories();
@@ -111,7 +113,11 @@ public class TraiteurApplication extends Application {
         */
     }
 
+
         public static void main(String[] args) {
         launch();
     }
+
+
+
 }
