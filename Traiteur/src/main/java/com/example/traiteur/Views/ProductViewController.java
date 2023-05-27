@@ -100,5 +100,9 @@ public class ProductViewController {
         }
         */
     }
+
+    public void ajouterNouveauBoutonArticle(String nomArticle, double prix){
+        Button nouveauArticle = new Button (nomArticle + " " + prix);
+    }
 }
 
