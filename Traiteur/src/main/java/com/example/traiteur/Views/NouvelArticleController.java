@@ -44,35 +44,40 @@ public class NouvelArticleController {
         RadioButtonPiece.setToggleGroup(prixToggleGroup);
 
         ButtonAjouterArticle.setOnAction(event -> {
-            ajouterArticle();
+            try {
+                ajouterArticle();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
         });
         ButtonAnnulerArticle.setOnAction(event -> {
             closeStage();
         });
     }
 // Ajouter un article dans le fichier texte
-    public void ajouterArticle(){
+    public void ajouterArticle() throws IOException {
         String catégorie = "nouvelle catgorie";
         String nomArticle = TextNom.getText();
         float prix = Float.parseFloat(TextPrix.getText());
         boolean typePrix;
-
         if (RadioButtonKilo.isSelected()){
             typePrix = false;
         } else {
             typePrix = true;
         }
-
         TraiteurApplication.ajouterArticle(catégorie, nomArticle, prix, typePrix);
-
-
-
+        closeStage();
+        //il faut faire une méthode pour ajouter pour suprimer la vbox de la liste des article et la recréer ou fermer la fenetre et la réouvrir
     }
-// Fermer la fenêtre si on annule l'ajout d'un article
+
+
+    // Fermer la fenêtre si on annule l'ajout d'un article
     public void closeStage(){
         Stage stage = (Stage) TextNom.getScene().getWindow();
         stage.close();
     }
+
+    /*
     private boolean writeDataToFile( String file, String donneesArticle){
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(file, true))){
             writer.write(donneesArticle);
@@ -84,6 +89,7 @@ public class NouvelArticleController {
             return false;
         }
     }
+     */
 
 }
 

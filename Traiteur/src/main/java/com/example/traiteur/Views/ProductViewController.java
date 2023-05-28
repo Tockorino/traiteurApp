@@ -35,7 +35,6 @@ public class ProductViewController {
 
     @FXML
     private VBox vboxListeArticle;
-
     @FXML
     void openNouvelArticle(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader5 = new FXMLLoader(TraiteurController.class.getResource("Nouvel-Article-view.fxml"));
@@ -44,11 +43,8 @@ public class ProductViewController {
         stage5.setTitle("Nouveaux Articles");
         stage5.setScene(scene5);
         stage5.show();
-
     }
-
     public void initialize() {
-
         for(Categories cat : TraiteurApplication.categories){
             TitledPane titledPane = new TitledPane();
             titledPane.setText(cat.getNom());
@@ -70,8 +66,6 @@ public class ProductViewController {
             });
             flowPane.getChildren().add(buttonNewArticle);
         }
-
-
         /*
         for (int i = 0; i < categories.size(); i++) {
             TitledPane titledPane = new TitledPane();
@@ -99,6 +93,11 @@ public class ProductViewController {
 
         }
         */
+    }
+
+    public void rechargerVue(){
+        vboxListeArticle.getChildren().clear();
+        initialize();
     }
 
     public void ajouterNouveauBoutonArticle(String nomArticle, double prix){

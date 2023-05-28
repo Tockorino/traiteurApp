@@ -2,6 +2,7 @@ package com.example.traiteur.Controller;
 
 import com.example.traiteur.Models.Articles;
 import com.example.traiteur.Models.Categories;
+import com.example.traiteur.Views.ProductViewController;
 import com.example.traiteur.Views.TraiteurController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -28,13 +29,7 @@ public class TraiteurApplication extends Application {
         else{
             file.createNewFile();
         }
-
-        System.out.println(TraiteurController.class.getResource(""));
-        FXMLLoader fxmlLoader1 = new FXMLLoader(TraiteurController.class.getResource("Traiteur-view.fxml"));
-        Scene scene1 = new Scene(fxmlLoader1.load());
-        stage.setTitle("bonjour je suis traiteur");
-        stage.setScene(scene1);
-        stage.show();
+        chargerTraiteurView(stage);
 
         FXMLLoader fxmlLoader2 = new FXMLLoader(TraiteurController.class.getResource("Balance-view.fxml"));
         Scene scene2 = new Scene(fxmlLoader2.load());
@@ -42,12 +37,18 @@ public class TraiteurApplication extends Application {
         stage2.setTitle("Balance");
         stage2.setScene(scene2);
         stage2.show();
+    }
 
-
+    private static void chargerTraiteurView(Stage stage) throws IOException {
+        System.out.println(TraiteurController.class.getResource(""));
+        FXMLLoader fxmlLoader1 = new FXMLLoader(TraiteurController.class.getResource("Traiteur-view.fxml"));
+        Scene scene1 = new Scene(fxmlLoader1.load());
+        stage.setTitle("bonjour je suis traiteur");
+        stage.setScene(scene1);
+        stage.show();
     }
 
     private static void listeCategories() {
-
         try (BufferedReader br = new BufferedReader(new FileReader(file))) {
                 String line = br.readLine();
                 while(line != null) {
@@ -65,7 +66,6 @@ public class TraiteurApplication extends Application {
                         cat.setNom(categorieNom);
                         categories.add(cat);
                     }
-
                     String article = br.readLine();
                     String prix = br.readLine();
                     String piece = br.readLine();
@@ -82,7 +82,6 @@ public class TraiteurApplication extends Application {
         } catch (IOException ex) {
             throw new RuntimeException(ex);
         }
-
 
         /*
         // Création des catégories manuellement
@@ -109,12 +108,6 @@ public class TraiteurApplication extends Application {
         categories.add(viandes);
         */
     }
-
-
-        public static void main(String[] args) {
-        launch();
-    }
-
         public static void ajouterArticle(String categorie, String article, float prix, boolean piece) {
             for (Categories cat : categories) {
                 if (cat.getNom().equals(categorie)) {
@@ -129,5 +122,22 @@ public class TraiteurApplication extends Application {
                 System.err.println("Erreur lors de l'écriture du fichier");
             }
         }
+
+        public void rechargeListe() throws IOException {
+
+        //test de rechargement de la vue et de la vbox
+
+            //ProductViewController.rechargerVue();
+            //this.rechargerVue();
+
+            /*
+            categories.clear();
+            categorieListe.clear();
+            listeCategories();
+            */
+        }
+        public static void main(String[] args) {
+        launch();
+    }
 
 }

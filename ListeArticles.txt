@@ -18,3 +18,15 @@ Fruits
 banane
 1.5
 true
+nouvelle catgorie
+poire
+1.5
+true
+nouvelle catgorie
+pâte carbo
+15.0
+false
+nouvelle catgorie
+test
+52.0
+true
