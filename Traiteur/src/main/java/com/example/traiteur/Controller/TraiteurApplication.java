@@ -8,10 +8,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -118,6 +115,19 @@ public class TraiteurApplication extends Application {
         launch();
     }
 
-
+        public static void ajouterArticle(String categorie, String article, float prix, boolean piece) {
+            for (Categories cat : categories) {
+                if (cat.getNom().equals(categorie)) {
+                    Articles articles = new Articles(article, prix, piece);
+                    cat.articles.add(articles);
+                    break;
+                }
+            }
+            try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(file, true))) {
+                bufferedWriter.write(categorie + "\n" + article + "\n" + prix + "\n" + piece + "\n");
+            } catch(IOException e) {
+                System.err.println("Erreur lors de l'écriture du fichier");
+            }
+        }
 
 }

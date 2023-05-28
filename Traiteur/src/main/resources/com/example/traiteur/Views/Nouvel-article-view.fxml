@@ -31,12 +31,12 @@
             <Font name="Calibri" size="14.0" />
          </font>
       </RadioButton>
-      <Button fx:id="ButtonAjouterArticle" onAction="#ajouterArticle" layoutX="51.0" layoutY="142.0" mnemonicParsing="false" text="Ajouter">
+      <Button fx:id="ButtonAjouterArticle" layoutX="51.0" layoutY="142.0" mnemonicParsing="false" text="Ajouter">
          <font>
             <Font name="Calibri" size="13.0" />
          </font>
       </Button>
-      <Button fx:id="ButtonAnnulerArticle" onAction="#closeStage" layoutX="114.0" layoutY="142.0" mnemonicParsing="false" text="Annuler">
+      <Button fx:id="ButtonAnnulerArticle" layoutX="114.0" layoutY="142.0" mnemonicParsing="false" text="Annuler">
          <font>
             <Font name="Calibri" size="13.0" />
          </font>

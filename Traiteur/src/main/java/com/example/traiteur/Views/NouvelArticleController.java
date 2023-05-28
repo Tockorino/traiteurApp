@@ -1,5 +1,6 @@
 package com.example.traiteur.Views;
 
+import com.example.traiteur.Controller.TraiteurApplication;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -41,40 +42,31 @@ public class NouvelArticleController {
         prixToggleGroup = new ToggleGroup();
         RadioButtonKilo.setToggleGroup(prixToggleGroup);
         RadioButtonPiece.setToggleGroup(prixToggleGroup);
+
+        ButtonAjouterArticle.setOnAction(event -> {
+            ajouterArticle();
+        });
+        ButtonAnnulerArticle.setOnAction(event -> {
+            closeStage();
+        });
     }
 // Ajouter un article dans le fichier texte
     public void ajouterArticle(){
+        String catégorie = "nouvelle catgorie";
         String nomArticle = TextNom.getText();
-        double prix = Double.parseDouble(TextPrix.getText());
-        String typePrix;
+        float prix = Float.parseFloat(TextPrix.getText());
+        boolean typePrix;
 
         if (RadioButtonKilo.isSelected()){
-            typePrix = "Prix au poids";
+            typePrix = false;
         } else {
-            typePrix = "Prix  à la quantité";
+            typePrix = true;
         }
 
-        String donneesArticle = nomArticle + " " + prix + " " + typePrix;
+        TraiteurApplication.ajouterArticle(catégorie, nomArticle, prix, typePrix);
 
-        if (writeDataToFile("ListeArticles.txt", donneesArticle)) {
-            System.out.println("Article ajouté");
 
-            // fonction pour ajouter un nouvel article dans ProductViewController
-            try {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("Product-view.fxml"));
-                Parent root = loader.load();
-                ProductViewController ProductViewController = loader.getController();
-                ProductViewController.ajouterNouveauBoutonArticle(nomArticle, prix);
 
-                Stage stage = new Stage();
-                stage.setScene(new Scene(root));
-                stage.show();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }else{
-            System.out.println("Erreur lors de l'ajout");
-        }
     }
 // Fermer la fenêtre si on annule l'ajout d'un article
     public void closeStage(){

@@ -10,3 +10,11 @@ Viandes
 steak
 2
 false
+Viandes
+filet de poulet
+1.5
+false
+Fruits
+banane
+1.5
+true

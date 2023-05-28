@@ -9,10 +9,10 @@
         <module name="Traiteur" />
         <module name="Client" />
         <module name="TerminalPaiement" />
+        <module name="Boucherie" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="Boucherie" target="19" />
       <module name="TraiteurFx-Client" target="19" />
       <module name="TraiteurFX-TerminalPaiement" target="19" />
       <module name="TraiteurFx-Vendeur" target="19" />
