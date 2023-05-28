@@ -64,7 +64,7 @@
          </children></VBox>
       <AnchorPane layoutY="417.0" prefHeight="40.0" prefWidth="564.0" style="-fx-border-color: white;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
-              <Button fx:id="ButtonAjouter" mnemonicParsing="false" prefHeight="26.0" prefWidth="76.0" text="Ajouter &gt;&gt;" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0" />
+              <Button fx:id="ButtonAjouter" onAction="#ajouterAuPanier" mnemonicParsing="false" prefHeight="26.0" prefWidth="76.0" text="Ajouter &gt;&gt;" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0" />
             <Label fx:id="LabelNomProduit" layoutX="7.0" layoutY="7.0" prefHeight="30.0" prefWidth="204.0" text="Carpaccio de boeuf" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="2.0" AnchorPane.topAnchor="5.0">
                <font>
                   <Font name="Calibri Bold" size="17.0" />

@@ -17,6 +17,8 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+import static com.example.traiteur.Views.CommandeViewController.*;
+
 public class ProductViewController {
     @FXML
     private AnchorPane anchorPane;
@@ -102,6 +104,14 @@ public class ProductViewController {
 
     public void ajouterNouveauBoutonArticle(String nomArticle, double prix){
         Button nouveauArticle = new Button (nomArticle + " " + prix);
+    }
+
+    public void ajouterAuPanier(){
+        String nomProduit = LabelNomProduit.getText();
+        String prixProduit = LabelPrixProduit.getText();
+        String poidsProduit = LabelPoidProduit.getText();
+
+        CommandeViewController.ajouterProduit(nomProduit, prixProduit, poidsProduit);
     }
 }
 
