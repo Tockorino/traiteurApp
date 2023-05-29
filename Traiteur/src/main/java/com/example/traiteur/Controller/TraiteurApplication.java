@@ -13,23 +13,22 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
-
 public class TraiteurApplication extends Application {
-
     public static List<String> categorieListe = new ArrayList<>();
     public static boolean existe = false;
     public static List<Categories> categories = new ArrayList<>();
     public static File file = new File("ListeArticles.txt");
+    private static Stage principalStage;
     @Override
     public void start(Stage stage) throws IOException {
-
         if(file.exists()) {
             listeCategories();
         }
         else{
             file.createNewFile();
         }
-        chargerTraiteurView(stage);
+        principalStage = stage;
+        chargerTraiteurView();
 
         FXMLLoader fxmlLoader2 = new FXMLLoader(TraiteurController.class.getResource("Balance-view.fxml"));
         Scene scene2 = new Scene(fxmlLoader2.load());
@@ -39,15 +38,29 @@ public class TraiteurApplication extends Application {
         stage2.show();
     }
 
-    private static void chargerTraiteurView(Stage stage) throws IOException {
-        System.out.println(TraiteurController.class.getResource(""));
-        FXMLLoader fxmlLoader1 = new FXMLLoader(TraiteurController.class.getResource("Traiteur-view.fxml"));
-        Scene scene1 = new Scene(fxmlLoader1.load());
-        stage.setTitle("bonjour je suis traiteur");
-        stage.setScene(scene1);
-        stage.show();
+    private static void chargerTraiteurView() {
+        try {
+            FXMLLoader fxmlLoader1 = new FXMLLoader(TraiteurController.class.getResource("Traiteur-view.fxml"));
+            Scene scene1 = null;
+            scene1 = new Scene(fxmlLoader1.load());
+            principalStage.setTitle("bonjour je suis traiteur");
+            principalStage.setScene(scene1);
+            principalStage.show();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
-
+    public static void refreshFXML() {
+        try {
+            FXMLLoader loader = new FXMLLoader(TraiteurApplication.class.getResource("Traiteur-view.fxml"));
+            Scene scene1 = null;
+            scene1 = new Scene(loader.load());
+            principalStage.setTitle("bonjour je suis traiteur");
+            principalStage.setScene(scene1);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
     private static void listeCategories() {
         try (BufferedReader br = new BufferedReader(new FileReader(file))) {
                 String line = br.readLine();
@@ -108,36 +121,23 @@ public class TraiteurApplication extends Application {
         categories.add(viandes);
         */
     }
-        public static void ajouterArticle(String categorie, String article, float prix, boolean piece) {
-            for (Categories cat : categories) {
-                if (cat.getNom().equals(categorie)) {
-                    Articles articles = new Articles(article, prix, piece);
-                    cat.articles.add(articles);
-                    break;
-                }
-            }
-            try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(file, true))) {
-                bufferedWriter.write(categorie + "\n" + article + "\n" + prix + "\n" + piece + "\n");
-            } catch(IOException e) {
-                System.err.println("Erreur lors de l'écriture du fichier");
+    public static void ajouterArticle(String categorie, String article, float prix, boolean piece) {
+        for (Categories cat : categories) {
+            if (cat.getNom().equals(categorie)) {
+                Articles articles = new Articles(article, prix, piece);
+                cat.articles.add(articles);
+                break;
             }
         }
-
-        public void rechargeListe() throws IOException {
-
-        //test de rechargement de la vue et de la vbox
-
-            //ProductViewController.rechargerVue();
-            //this.rechargerVue();
-
-            /*
-            categories.clear();
-            categorieListe.clear();
-            listeCategories();
-            */
+        try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(file, true))) {
+            bufferedWriter.write(categorie + "\n" + article + "\n" + prix + "\n" + piece + "\n");
+        } catch(IOException e) {
+            System.err.println("Erreur lors de l'écriture du fichier");
         }
-        public static void main(String[] args) {
-        launch();
+    }
+
+    public static void main(String[] args) {
+    launch();
     }
 
 }

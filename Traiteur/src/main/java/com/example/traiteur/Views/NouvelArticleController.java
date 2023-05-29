@@ -67,7 +67,8 @@ public class NouvelArticleController {
         }
         TraiteurApplication.ajouterArticle(catégorie, nomArticle, prix, typePrix);
         closeStage();
-        //il faut faire une méthode pour ajouter pour suprimer la vbox de la liste des article et la recréer ou fermer la fenetre et la réouvrir
+        //rafraichir la liste des articles
+        TraiteurApplication.refreshFXML();
     }
 
 
