@@ -30,3 +30,7 @@ nouvelle catgorie
 test
 52.0
 true
+nouvelle catgorie
+abricot
+12.0
+false

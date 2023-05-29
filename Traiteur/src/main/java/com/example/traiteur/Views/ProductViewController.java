@@ -17,7 +17,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-import static com.example.traiteur.Views.CommandeViewController.*;
+import static com.example.traiteur.Views.BalanceController.*;
 
 public class ProductViewController {
     @FXML
@@ -56,7 +56,9 @@ public class ProductViewController {
             for(Articles article : cat.articles){
                 Button buttonArticle = new Button(article.getNom());
                 flowPane.getChildren().add(buttonArticle);
+                buttonArticle.setUserData(article);
                 //ajouter action
+                this.informationArticle(buttonArticle);
             }
             Button buttonNewArticle = new Button("Ajouter un article");
             buttonNewArticle.setOnAction(event -> {
@@ -97,6 +99,23 @@ public class ProductViewController {
         */
     }
 
+    private void informationArticle(Button article) {
+        LabelNomProduit.setText(((Articles)article.getUserData()).getNom());
+        LabelPoidProduit.setText(getPoidsString());
+        float prixCalculer = 0;
+        float prix = (float) ((Articles) article.getUserData()).getPrix();
+        float poids = Float.parseFloat(getPoidsString());
+        if(((Articles) article.getUserData()).getType()){
+            prixCalculer = poids * prix;
+            LabelPrixProduit.setText(prixCalculer+ "€");
+        }
+        else{
+            prixCalculer = (prix/1000)*poids;
+            LabelPrixProduit.setText(prixCalculer + "€/kg");
+        }
+    }
+
+
     public void rechargerVue(){
         vboxListeArticle.getChildren().clear();
         initialize();
@@ -108,8 +127,8 @@ public class ProductViewController {
 
     public void ajouterAuPanier(){
         String nomProduit = LabelNomProduit.getText();
-        String prixProduit = LabelPrixProduit.getText();
         String poidsProduit = LabelPoidProduit.getText();
+        String prixProduit = LabelPrixProduit.getText();
 
         CommandeViewController.ajouterProduit(nomProduit, prixProduit, poidsProduit);
     }
