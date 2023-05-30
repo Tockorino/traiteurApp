@@ -10,13 +10,12 @@ public class BalanceController {
 
     public static String getPoidsString() {
         String poids;
-            if(TextFieldBalance == null){
-                poids = "0";
-            }
-            else {
-                poids = TextFieldBalance.getText();
-            }
+        if(TextFieldBalance == null){
+            poids = "0";
+        }
+        else {
+            poids = TextFieldBalance.getText();
+        }
         return poids;
     }
-
 }

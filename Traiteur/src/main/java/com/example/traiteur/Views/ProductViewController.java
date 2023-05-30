@@ -61,6 +61,7 @@ public class ProductViewController {
                 //ajouter action
                 buttonArticle.setOnAction(event -> {
                     LabelNomProduit.setText(((Articles)buttonArticle.getUserData()).getNom());
+                    LabelPoidProduit.setText(BalanceController.getPoidsString());
                 });
                 this.informationArticle(buttonArticle);
             }
@@ -110,4 +111,3 @@ public class ProductViewController {
         }
     }
 }
-
