@@ -23,13 +23,12 @@ public class Articles {
         return nom;
     }
 
-
-    public float getPrix() {
-        return prix;
-    }
-
     public boolean getType() {
         return pc;
+    }
+
+    public Object getPrix() {
+        return prix;
     }
 
 }
