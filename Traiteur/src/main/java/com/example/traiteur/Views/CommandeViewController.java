@@ -28,7 +28,8 @@ public class CommandeViewController {
         anchorPane.getChildren().add(nouveauProduit);
         VboxListeCommande.getChildren().add(anchorPane);
 
-        /*try {
+        /*
+        try {
             FXMLLoader loader = new FXMLLoader(ArticleListeController.class.getResource("ArticleListe-view.fxml"));
             Parent p = loader.load();
             ArticleListeController controller = loader.getController();
@@ -39,7 +40,8 @@ public class CommandeViewController {
             Label label = new Label("Erreur lors de l'ajout du produit");
             VboxListeCommande.getChildren().add(label);
 
-        }*/
+        }
+        */
     }
 
     private static void changeTotal(String prixProduit) {
