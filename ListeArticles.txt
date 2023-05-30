@@ -22,27 +22,7 @@ nouvelle catgorie
 poire
 1.5
 true
-nouvelle catgorie
-pâte carbo
+Plats
+Spag bolo
 15.0
-false
-nouvelle catgorie
-test
-52.0
-true
-nouvelle catgorie
-abricot
-12.0
-false
-nouvelle catgorie
-fraise
-10.0
-false
-nouvelle catgorie
-test2
-12.0
-false
-nouvelle catgorie
-test3
-12.0
 false

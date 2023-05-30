@@ -100,7 +100,11 @@ public class ProductViewController {
     }
 
     public void ajouterAuPanier(){
-        CommandeViewController.ajouterProduit(LabelNomProduit.getText(), LabelPoidProduit.getText(), LabelPrixProduit.getText());
+        try {
+            CommandeViewController.ajouterProduit(LabelNomProduit.getText(), LabelPoidProduit.getText(), LabelPrixProduit.getText());
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
 

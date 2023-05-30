@@ -5,10 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.TextField;
-import javafx.scene.control.ToggleGroup;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 import java.io.BufferedWriter;
@@ -31,17 +28,22 @@ public class NouvelArticleController {
     private RadioButton RadioButtonPiece;
 
     @FXML
+    private ChoiceBox<String> ChoixCatégories;
+
+    @FXML
     private TextField TextNom;
 
     @FXML
     private TextField TextPrix;
 
     private ToggleGroup prixToggleGroup;
-//Fonstion pour choisir si le prix est au kilo ou à la pièce
+
     public void initialize() {
         prixToggleGroup = new ToggleGroup();
         RadioButtonKilo.setToggleGroup(prixToggleGroup);
         RadioButtonPiece.setToggleGroup(prixToggleGroup);
+
+        ChoixCatégories.getItems().addAll(TraiteurApplication.categorieListe);
 
         ButtonAjouterArticle.setOnAction(event -> {
             try {
@@ -56,7 +58,7 @@ public class NouvelArticleController {
     }
 // Ajouter un article dans le fichier texte
     public void ajouterArticle() throws IOException {
-        String catégorie = "nouvelle catgorie";
+        String catégorie = ChoixCatégories.getValue();
         String nomArticle = TextNom.getText();
         float prix = Float.parseFloat(TextPrix.getText());
         boolean typePrix;
@@ -68,7 +70,7 @@ public class NouvelArticleController {
         TraiteurApplication.ajouterArticle(catégorie, nomArticle, prix, typePrix);
         closeStage();
         //rafraichir la liste des articles
-        TraiteurApplication.refreshFXML();
+        //TraiteurApplication.refreshFXML();
     }
 
 
@@ -77,20 +79,5 @@ public class NouvelArticleController {
         Stage stage = (Stage) TextNom.getScene().getWindow();
         stage.close();
     }
-
-    /*
-    private boolean writeDataToFile( String file, String donneesArticle){
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(file, true))){
-            writer.write(donneesArticle);
-            writer.newLine();
-            return  true;
-        } catch (IOException e) {
-            System.out.println("Erreur lors de l'écriture'");
-            e.printStackTrace();
-            return false;
-        }
-    }
-     */
-
 }
 

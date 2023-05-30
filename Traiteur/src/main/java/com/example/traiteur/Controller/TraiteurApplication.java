@@ -2,6 +2,7 @@ package com.example.traiteur.Controller;
 
 import com.example.traiteur.Models.Articles;
 import com.example.traiteur.Models.Categories;
+import com.example.traiteur.Views.CommandeViewController;
 import com.example.traiteur.Views.ProductViewController;
 import com.example.traiteur.Views.TraiteurController;
 import javafx.application.Application;

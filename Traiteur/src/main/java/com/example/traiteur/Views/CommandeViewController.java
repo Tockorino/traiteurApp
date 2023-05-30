@@ -15,13 +15,20 @@ public class CommandeViewController {
     @FXML
     private static Label labelCommandeTotal;
 
-    public void initialize() {
-        VboxListeCommande.getChildren();
+    public CommandeViewController() {
     }
 
-    public static void ajouterProduit(String nomProduit, String prixProduit, String poidsProduit) {
-        VboxListeCommande.getChildren().clear();
-        try {
+    public static void ajouterProduit(String nomProduit, String prixProduit, String poidsProduit) throws IOException {
+        AnchorPane anchorPane = new AnchorPane();
+
+        FXMLLoader loader = new FXMLLoader(ArticleListeController.class.getResource("ArticleListe-view.fxml"));
+        Parent p = loader.load();
+        ArticleListeController controller = loader.getController();
+        ArticleListeController nouveauProduit = new ArticleListeController(nomProduit, prixProduit, poidsProduit);
+        anchorPane.getChildren().add(nouveauProduit);
+        VboxListeCommande.getChildren().add(anchorPane);
+
+        /*try {
             FXMLLoader loader = new FXMLLoader(ArticleListeController.class.getResource("ArticleListe-view.fxml"));
             Parent p = loader.load();
             ArticleListeController controller = loader.getController();
@@ -32,7 +39,7 @@ public class CommandeViewController {
             Label label = new Label("Erreur lors de l'ajout du produit");
             VboxListeCommande.getChildren().add(label);
 
-        }
+        }*/
     }
 
     private static void changeTotal(String prixProduit) {
