@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane minWidth="180.0" prefHeight="450.0" prefWidth="240.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane minWidth="180.0" prefHeight="450.0" prefWidth="240.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.traiteur.Views.CommandeViewController">
    <children>
       <VBox prefHeight="415.0" prefWidth="250.0" style="-fx-border-color: white;" AnchorPane.bottomAnchor="35.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -14,7 +14,10 @@
                   <Font size="11.0" />
                </font>
             </Label>
-            <VBox fx:id="VboxListeCommande" prefHeight="415.0" prefWidth="206.0" />
+            <VBox fx:id="VboxListeCommande" prefHeight="415.0" prefWidth="206.0" >
+               <children>
+               </children>
+            </VBox>
          </children></VBox>
       <AnchorPane layoutY="435.0" prefHeight="30.0" prefWidth="250.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>

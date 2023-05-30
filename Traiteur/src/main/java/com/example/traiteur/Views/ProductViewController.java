@@ -20,6 +20,7 @@ import java.io.IOException;
 import static com.example.traiteur.Views.BalanceController.*;
 
 public class ProductViewController {
+
     @FXML
     private AnchorPane anchorPane;
 
@@ -70,33 +71,6 @@ public class ProductViewController {
             });
             flowPane.getChildren().add(buttonNewArticle);
         }
-        /*
-        for (int i = 0; i < categories.size(); i++) {
-            TitledPane titledPane = new TitledPane();
-            titledPane.setText(categories.get(i).get(0));
-            titledPane.minWidth(400);
-            titledPane.minHeight(500);
-            FlowPane flowPane = new FlowPane();
-            vboxListeArticle.getChildren().add(titledPane);
-            titledPane.setContent(flowPane);
-            for (int j = 1; j < categories.get(i).size(); j++) {
-                Button buttonArticle = new Button(categories.get(i).get(j));
-                if(j==categories.get(i).size()-1){
-                    buttonArticle.setOnAction(event -> {
-                        try {
-                            openNouvelArticle(event);
-                        } catch (IOException e) {
-                            throw new RuntimeException(e);
-                        }
-                    });
-                }
-                else {
-                }
-                flowPane.getChildren().add(buttonArticle);
-            }
-
-        }
-        */
     }
 
     private void informationArticle(Button article) {
@@ -126,11 +100,7 @@ public class ProductViewController {
     }
 
     public void ajouterAuPanier(){
-        String nomProduit = LabelNomProduit.getText();
-        String poidsProduit = LabelPoidProduit.getText();
-        String prixProduit = LabelPrixProduit.getText();
-
-        CommandeViewController.ajouterProduit(nomProduit, prixProduit, poidsProduit);
+        CommandeViewController.ajouterProduit(LabelNomProduit.getText(), LabelPoidProduit.getText(), LabelPrixProduit.getText());
     }
 }
 

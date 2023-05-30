@@ -1,10 +1,12 @@
 package com.example.traiteur.Views;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import java.io.IOException;
 
 public class CommandeViewController {
     public static float total = 0;
@@ -13,10 +15,24 @@ public class CommandeViewController {
     @FXML
     private static Label labelCommandeTotal;
 
+    public void initialize() {
+        VboxListeCommande.getChildren();
+    }
+
     public static void ajouterProduit(String nomProduit, String prixProduit, String poidsProduit) {
-        ArticleListeController nouveauProduit = new ArticleListeController(nomProduit, prixProduit, poidsProduit);
-        VboxListeCommande.getChildren().add(nouveauProduit);
-        changeTotal(prixProduit);
+        VboxListeCommande.getChildren().clear();
+        try {
+            FXMLLoader loader = new FXMLLoader(ArticleListeController.class.getResource("ArticleListe-view.fxml"));
+            Parent p = loader.load();
+            ArticleListeController controller = loader.getController();
+            ArticleListeController nouveauProduit = new ArticleListeController(nomProduit, prixProduit, poidsProduit);
+            VboxListeCommande.getChildren().add(nouveauProduit);
+            changeTotal(prixProduit);
+        } catch (IOException e) {
+            Label label = new Label("Erreur lors de l'ajout du produit");
+            VboxListeCommande.getChildren().add(label);
+
+        }
     }
 
     private static void changeTotal(String prixProduit) {
