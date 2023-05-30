@@ -72,10 +72,8 @@ public class NouvelArticleController {
         //rafraichir la liste des articles
         //TraiteurApplication.refreshFXML();
     }
-
     public void closeStage(){
         Stage stage = (Stage) TextNom.getScene().getWindow();
         stage.close();
     }
 }
-

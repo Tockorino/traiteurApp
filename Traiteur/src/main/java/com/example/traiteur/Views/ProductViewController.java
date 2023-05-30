@@ -59,6 +59,9 @@ public class ProductViewController {
                 flowPane.getChildren().add(buttonArticle);
                 buttonArticle.setUserData(article);
                 //ajouter action
+                buttonArticle.setOnAction(event -> {
+                    LabelNomProduit.setText(((Articles)buttonArticle.getUserData()).getNom());
+                });
                 this.informationArticle(buttonArticle);
             }
             Button buttonNewArticle = new Button("Ajouter un article");
