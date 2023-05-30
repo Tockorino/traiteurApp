@@ -73,7 +73,6 @@ public class NouvelArticleController {
         //TraiteurApplication.refreshFXML();
     }
 
-
     // Fermer la fenêtre si on annule l'ajout d'un article
     public void closeStage(){
         Stage stage = (Stage) TextNom.getScene().getWindow();
