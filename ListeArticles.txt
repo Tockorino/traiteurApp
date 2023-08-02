@@ -30,3 +30,7 @@ Plats
 dgf
 14.0
 false
+Plats
+Vol au vent
+45.0
+true

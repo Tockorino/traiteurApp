@@ -4,9 +4,12 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.input.MouseButton;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import java.io.IOException;
+import javafx.scene.paint.Color;
 
 public class CommandeViewController {
     public static float total = 0;
@@ -14,6 +17,16 @@ public class CommandeViewController {
     private static VBox VboxListeCommande;
     @FXML
     private static Label labelCommandeTotal;
+
+    @FXML
+     public void ajouterPromotion(MouseEvent event) {
+        if (event.getButton() == MouseButton.PRIMARY && event.getClickCount() == 1) {
+            Label labelPromotion = new Label("Promotion -5,00€");
+            labelPromotion.setTextFill(Color.GREEN);
+            VboxListeCommande.getChildren().add(labelPromotion);
+        }
+    }
+
 
     public CommandeViewController() {
     }
@@ -44,7 +57,7 @@ public class CommandeViewController {
         */
     }
 
-    private static void changeTotal(String prixProduit) {
+    private  void changeTotal(String prixProduit) {
         float prix = Float.parseFloat(prixProduit);
         total += prix;
         labelCommandeTotal.setText(String.valueOf(total));
