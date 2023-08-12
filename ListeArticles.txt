@@ -34,3 +34,7 @@ Plats
 Vol au vent
 45.0
 true
+Fruits
+Melon 
+4.0
+true

@@ -18,6 +18,8 @@ public class CommandeViewController implements CommandeInteraction {
     @FXML
     private static Label labelCommandeTotal;
 
+    private static ArticleListeController articleListeController;
+
     @FXML
     public void ajouterPromotion(MouseEvent event) {
         if (event.getButton() == MouseButton.PRIMARY && event.getClickCount() == 1) {
@@ -36,10 +38,12 @@ public class CommandeViewController implements CommandeInteraction {
 
         FXMLLoader loader = new FXMLLoader(ArticleListeController.class.getResource("ArticleListe-view.fxml"));
         Parent p = loader.load();
-        ArticleListeController controller = loader.getController();
+        // appel du controller pour l'article
+        articleListeController = loader.getController();
         ArticleListeController nouveauProduit = new ArticleListeController(nomProduit, prixProduit, poidsProduit);
         anchorPane.getChildren().add(nouveauProduit);
         VboxListeCommande.getChildren().add(anchorPane);
+
 
         /*
         try {

@@ -29,7 +29,7 @@ public class BalanceController {
             @Override
             public void handle(KeyEvent event) {
                 // Mettre à jour la variable poidsString avec le nouveau texte du TextFieldBalance
-                poidsString = TextFieldBalance.getText()+ "g";
+                poidsString = TextFieldBalance.getText();
 
                 if (productInteraction == null) {
                     System.out.println("IS NULL");

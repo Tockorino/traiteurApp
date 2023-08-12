@@ -120,16 +120,21 @@ public class ProductViewController implements ProductInteraction{
     @Override
     public void nouvelleMasse(String masse) {
         System.out.println(masse);
-        LabelPoidProduit.setText(masse);
-        //float poids = Float.parseFloat(poidsBal);
-        // if(((Articles) article.getUserData()).getType()){
-        //   prixCalculer = poids * prix;
-        //    LabelPrixProduit.setText(prixCalculer+ "€");
-        // }
-        //else{
-        //   prixCalculer = (prix/1000)*poids;
-        //    LabelPrixProduit.setText(prixCalculer + "€/kg");
+        LabelPoidProduit.setText(masse + "g");
+        // Convertir la chaîne 'masse' en double (ou float, si nécessaire)
+        if (masse.length() > 1) {
+            double masseNumerique = Double.parseDouble(masse);
 
+            // Effectuer l'opération de division
+            double prixCalculer = masseNumerique / 120.0;
+            //    LabelPrixProduit.setText(prixCalculer+ "€");
+            // }
+            //else{
+            //   prixCalculer = (prix/1000)*poids;
+            LabelPrixProduit.setText(prixCalculer + "€/kg");
+        }else {
+            LabelPrixProduit.setText("0€/Kg");
+        }
         // }
     }
 }
