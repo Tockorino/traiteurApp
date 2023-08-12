@@ -38,6 +38,8 @@ public class NouvelArticleController {
 
     private ToggleGroup prixToggleGroup;
 
+
+
     public void initialize() {
         prixToggleGroup = new ToggleGroup();
         RadioButtonKilo.setToggleGroup(prixToggleGroup);
@@ -56,8 +58,9 @@ public class NouvelArticleController {
             closeStage();
         });
     }
-// Ajouter un article dans le fichier texte
+    // Ajouter un article dans le fichier texte
     public void ajouterArticle() throws IOException {
+        TraiteurApplication ajArt = new TraiteurApplication();
         String catégorie = ChoixCatégories.getValue();
         String nomArticle = TextNom.getText();
         float prix = Float.parseFloat(TextPrix.getText());
@@ -67,7 +70,7 @@ public class NouvelArticleController {
         } else {
             typePrix = true;
         }
-        TraiteurApplication.ajouterArticle(catégorie, nomArticle, prix, typePrix);
+        ajArt.ajouterArticle(catégorie, nomArticle, prix, typePrix);
         closeStage();
         //rafraichir la liste des articles
         //TraiteurApplication.refreshFXML();

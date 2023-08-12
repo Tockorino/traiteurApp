@@ -11,7 +11,7 @@ import javafx.scene.layout.VBox;
 import java.io.IOException;
 import javafx.scene.paint.Color;
 
-public class CommandeViewController {
+public class CommandeViewController implements CommandeInteraction {
     public static float total = 0;
     @FXML
     private static VBox VboxListeCommande;
@@ -19,7 +19,7 @@ public class CommandeViewController {
     private static Label labelCommandeTotal;
 
     @FXML
-     public void ajouterPromotion(MouseEvent event) {
+    public void ajouterPromotion(MouseEvent event) {
         if (event.getButton() == MouseButton.PRIMARY && event.getClickCount() == 1) {
             Label labelPromotion = new Label("Promotion -5,00€");
             labelPromotion.setTextFill(Color.GREEN);
@@ -61,5 +61,10 @@ public class CommandeViewController {
         float prix = Float.parseFloat(prixProduit);
         total += prix;
         labelCommandeTotal.setText(String.valueOf(total));
+    }
+//nouvel ajout
+    @Override
+    public void articleCommande(String produit) {
+
     }
 }

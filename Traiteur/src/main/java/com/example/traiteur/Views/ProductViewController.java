@@ -1,6 +1,7 @@
 package com.example.traiteur.Views;
 
 import com.example.traiteur.Controller.TraiteurApplication;
+
 import com.example.traiteur.Models.Articles;
 import com.example.traiteur.Models.Categories;
 import javafx.event.ActionEvent;
@@ -17,9 +18,8 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-import static com.example.traiteur.Views.BalanceController.*;
 
-public class ProductViewController {
+public class ProductViewController implements ProductInteraction{
 
     @FXML
     private AnchorPane anchorPane;
@@ -47,7 +47,11 @@ public class ProductViewController {
         stage5.setScene(scene5);
         stage5.show();
     }
+
     public void initialize() {
+        String poidsBal = "";
+
+
         for(Categories cat : TraiteurApplication.categories){
             TitledPane titledPane = new TitledPane();
             titledPane.setText(cat.getNom());
@@ -61,7 +65,7 @@ public class ProductViewController {
                 //ajouter action
                 buttonArticle.setOnAction(event -> {
                     LabelNomProduit.setText(((Articles)buttonArticle.getUserData()).getNom());
-                    LabelPoidProduit.setText(BalanceController.getPoidsString());
+                    LabelPoidProduit.setText(poidsBal);
                 });
                 this.informationArticle(buttonArticle);
             }
@@ -78,20 +82,21 @@ public class ProductViewController {
     }
 
     private void informationArticle(Button article) {
+
         LabelNomProduit.setText(((Articles)article.getUserData()).getNom());
-        LabelPoidProduit.setText(getPoidsString());
+        //LabelPoidProduit.setText(poidsBal);
         float prixCalculer = 0;
         float prix = (float) ((Articles) article.getUserData()).getPrix();
-        float poids = Float.parseFloat(getPoidsString());
-        if(((Articles) article.getUserData()).getType()){
-            prixCalculer = poids * prix;
-            LabelPrixProduit.setText(prixCalculer+ "€");
-        }
-        else{
-            prixCalculer = (prix/1000)*poids;
-            LabelPrixProduit.setText(prixCalculer + "€/kg");
-        }
+        //float poids = Float.parseFloat(poidsBal);
+        // if(((Articles) article.getUserData()).getType()){
+        //   prixCalculer = poids * prix;
+        //    LabelPrixProduit.setText(prixCalculer+ "€");
+        // }
+        //else{
+        //   prixCalculer = (prix/1000)*poids;
+        //    LabelPrixProduit.setText(prixCalculer + "€/kg");
     }
+    // }
 
 
     public void rechargerVue(){
@@ -103,11 +108,28 @@ public class ProductViewController {
         Button nouveauArticle = new Button (nomArticle + " " + prix);
     }
 
-    public void ajouterAuPanier(){
+    public void ajouterAuPanier() {
         try {
             CommandeViewController.ajouterProduit(LabelNomProduit.getText(), LabelPoidProduit.getText(), LabelPrixProduit.getText());
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
         }
+    }
+
+
+    @Override
+    public void nouvelleMasse(String masse) {
+        System.out.println(masse);
+        LabelPoidProduit.setText(masse);
+        //float poids = Float.parseFloat(poidsBal);
+        // if(((Articles) article.getUserData()).getType()){
+        //   prixCalculer = poids * prix;
+        //    LabelPrixProduit.setText(prixCalculer+ "€");
+        // }
+        //else{
+        //   prixCalculer = (prix/1000)*poids;
+        //    LabelPrixProduit.setText(prixCalculer + "€/kg");
+
+        // }
     }
 }

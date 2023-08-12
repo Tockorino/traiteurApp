@@ -8,26 +8,33 @@ import javafx.scene.layout.AnchorPane;
 
 import java.io.Serializable;
 
+
 public class ArticleListeController extends Node implements Serializable {
     @FXML
     private AnchorPane ArticleListeAnchor;
     @FXML
-    private static Label PoidsLabel;
+    private  Label PoidsLabel;
     @FXML
-    private static Label NomLabel;
+    private  Label NomLabel;
     @FXML
-    private static Label PrixLabel;
+    private  Label PrixLabel;
+
+    private String nomProduit;
+    private String prixProduit;
+    private String poidsProduit;
+
 
     public void initialize() {
-        PoidsLabel.setText("poidsProduit");
-        NomLabel.setText("nomProduit");
-        PrixLabel.setText("prixProduit");
-    }
-    public ArticleListeController(String nomProduit, String prixProduit, String poidsProduit) {
         PoidsLabel.setText(poidsProduit);
         NomLabel.setText(nomProduit);
         PrixLabel.setText(prixProduit);
     }
+    public ArticleListeController(String nomProduit, String prixProduit, String poidsProduit) {
+        this.nomProduit = nomProduit;
+        this.prixProduit = prixProduit;
+        this.poidsProduit = poidsProduit;
+    }
+
     @Override
     public Node getStyleableNode() {
         return super.getStyleableNode();

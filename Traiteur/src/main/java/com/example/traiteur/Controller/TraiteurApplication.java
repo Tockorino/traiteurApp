@@ -2,6 +2,7 @@ package com.example.traiteur.Controller;
 
 import com.example.traiteur.Models.Articles;
 import com.example.traiteur.Models.Categories;
+import com.example.traiteur.Views.BalanceController;
 import com.example.traiteur.Views.CommandeViewController;
 import com.example.traiteur.Views.ProductViewController;
 import com.example.traiteur.Views.TraiteurController;
@@ -20,6 +21,13 @@ public class TraiteurApplication extends Application {
     public static List<Categories> categories = new ArrayList<>();
     public static File file = new File("ListeArticles.txt");
     private static Stage principalStage;
+
+    private static BalanceController balanceController;
+    private static ProductViewController productViewController;
+    private static TraiteurController traiteurController;
+
+    private static CommandeViewController commandeViewController;
+
     @Override
     public void start(Stage stage) throws IOException {
         if(file.exists()) {
@@ -33,6 +41,10 @@ public class TraiteurApplication extends Application {
 
         FXMLLoader fxmlLoader2 = new FXMLLoader(TraiteurController.class.getResource("Balance-view.fxml"));
         Scene scene2 = new Scene(fxmlLoader2.load());
+
+        balanceController = fxmlLoader2.getController();
+        balanceController.setProductInteraction(productViewController);
+
         Stage stage2 = new Stage();
         stage2.setTitle("Balance");
         stage2.setScene(scene2);
@@ -42,8 +54,13 @@ public class TraiteurApplication extends Application {
     private static void chargerTraiteurView() {
         try {
             FXMLLoader fxmlLoader1 = new FXMLLoader(TraiteurController.class.getResource("Traiteur-view.fxml"));
-            Scene scene1 = null;
-            scene1 = new Scene(fxmlLoader1.load());
+            Scene scene1 = new Scene(fxmlLoader1.load());
+
+            traiteurController = fxmlLoader1.getController();
+            productViewController = traiteurController.getProductViewController();
+        //nouvel ajout pour avoir le CommandeViewController
+            commandeViewController = traiteurController.getCommandeViewController();
+
             principalStage.setTitle("bonjour je suis traiteur");
             principalStage.setScene(scene1);
             principalStage.show();
@@ -64,35 +81,35 @@ public class TraiteurApplication extends Application {
     }
     private static void listeCategories() {
         try (BufferedReader br = new BufferedReader(new FileReader(file))) {
-                String line = br.readLine();
-                while(line != null) {
-                    String categorieNom = line;
-                    for (String cat : categorieListe) {
-                        if (cat.equals(categorieNom)) {
-                            existe = true;
-                            break;
-                        }
+            String line = br.readLine();
+            while(line != null) {
+                String categorieNom = line;
+                for (String cat : categorieListe) {
+                    if (cat.equals(categorieNom)) {
+                        existe = true;
+                        break;
                     }
-                    if (!existe) {
-                        categorieListe.add(categorieNom);
-                        //ajouter la liste de catégories
-                        Categories cat = new Categories();
-                        cat.setNom(categorieNom);
-                        categories.add(cat);
-                    }
-                    String article = br.readLine();
-                    String prix = br.readLine();
-                    String piece = br.readLine();
-                    Articles articles = new Articles(article, Float.parseFloat(prix), Boolean.parseBoolean(piece));
-                    for (Categories cat : categories) {
-                        if (cat.getNom().equals(categorieNom)) {
-                            cat.articles.add(articles);
-                            break;
-                        }
-                    }
-                    existe = false;
-                    line = br.readLine();
                 }
+                if (!existe) {
+                    categorieListe.add(categorieNom);
+                    //ajouter la liste de catégories
+                    Categories cat = new Categories();
+                    cat.setNom(categorieNom);
+                    categories.add(cat);
+                }
+                String article = br.readLine();
+                String prix = br.readLine();
+                String piece = br.readLine();
+                Articles articles = new Articles(article, Float.parseFloat(prix), Boolean.parseBoolean(piece));
+                for (Categories cat : categories) {
+                    if (cat.getNom().equals(categorieNom)) {
+                        cat.articles.add(articles);
+                        break;
+                    }
+                }
+                existe = false;
+                line = br.readLine();
+            }
         } catch (IOException ex) {
             throw new RuntimeException(ex);
         }
@@ -138,7 +155,7 @@ public class TraiteurApplication extends Application {
     }
 
     public static void main(String[] args) {
-    launch();
+        launch();
     }
 
 }
