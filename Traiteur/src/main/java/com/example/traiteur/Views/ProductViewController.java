@@ -121,6 +121,7 @@ public class ProductViewController implements ProductInteraction{
         if (masse.length() > 0) {
             double masseNumerique = Double.parseDouble(masse);
             double prixArticle = ((Float) selectedArticle.getPrix()).doubleValue();
+            double poidsEnKilo = masseNumerique / 1000.0; // Convertir le poids en grammes en kilogrammes
             System.out.println(prixArticle +"prix article");
             if (selectedArticle.getType() == true) {
                 // Le prix est à la pièce
@@ -129,12 +130,12 @@ public class ProductViewController implements ProductInteraction{
                 LabelPoidProduit.setText(masse + "pcs");
             } else {
                 // Le prix est au kilo
-                double prixAuKilo = prixArticle / masseNumerique;
-                LabelPrixProduit.setText(prixAuKilo + "€/kg");
+                double prixAuKilo = prixArticle * poidsEnKilo;
+                LabelPrixProduit.setText(prixAuKilo + "€");
                 LabelPoidProduit.setText(masse + "g");
             }
         }else {
-            LabelPrixProduit.setText("0€/Kg");
+            LabelPrixProduit.setText("0€");
         }
         // }
     }
