@@ -17,6 +17,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.text.DecimalFormat;
 
 
 public class ProductViewController implements ProductInteraction{
@@ -131,7 +132,11 @@ public class ProductViewController implements ProductInteraction{
             } else {
                 // Le prix est au kilo
                 double prixAuKilo = prixArticle * poidsEnKilo;
-                LabelPrixProduit.setText(prixAuKilo + "€");
+                // Utiliser DecimalFormat pour formater le prix au kilo avec deux chiffres après la virgule
+                DecimalFormat decimalFormat = new DecimalFormat("#.##");
+                String formattedPrixAuKilo = decimalFormat.format(prixAuKilo);
+
+                LabelPrixProduit.setText(formattedPrixAuKilo + "€");
                 LabelPoidProduit.setText(masse + "g");
             }
         }else {
