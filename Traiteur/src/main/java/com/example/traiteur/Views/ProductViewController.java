@@ -38,6 +38,8 @@ public class ProductViewController implements ProductInteraction{
 
     @FXML
     private VBox vboxListeArticle;
+
+    public Articles selectedArticle;
     @FXML
     void openNouvelArticle(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader5 = new FXMLLoader(TraiteurController.class.getResource("Nouvel-Article-view.fxml"));
@@ -59,15 +61,18 @@ public class ProductViewController implements ProductInteraction{
             vboxListeArticle.getChildren().add(titledPane);
             titledPane.setContent(flowPane);
             for(Articles article : cat.articles){
-                Button buttonArticle = new Button(article.getNom());
+                String type = article.getType() ? "€/pcs": "€/kg";
+                Button buttonArticle = new Button(article.getNom() + " " + article.getPrix() + type);
                 flowPane.getChildren().add(buttonArticle);
                 buttonArticle.setUserData(article);
+                selectedArticle = article;
                 //ajouter action
                 buttonArticle.setOnAction(event -> {
                     LabelNomProduit.setText(((Articles)buttonArticle.getUserData()).getNom());
-                    LabelPoidProduit.setText(poidsBal);
+                    selectedArticle = article;
                 });
                 this.informationArticle(buttonArticle);
+               // selectedArticle = article;
             }
             Button buttonNewArticle = new Button("Ajouter un article");
             buttonNewArticle.setOnAction(event -> {
@@ -84,19 +89,10 @@ public class ProductViewController implements ProductInteraction{
     private void informationArticle(Button article) {
 
         LabelNomProduit.setText(((Articles)article.getUserData()).getNom());
-        //LabelPoidProduit.setText(poidsBal);
-        float prixCalculer = 0;
-        float prix = (float) ((Articles) article.getUserData()).getPrix();
-        //float poids = Float.parseFloat(poidsBal);
-        // if(((Articles) article.getUserData()).getType()){
-        //   prixCalculer = poids * prix;
-        //    LabelPrixProduit.setText(prixCalculer+ "€");
-        // }
-        //else{
-        //   prixCalculer = (prix/1000)*poids;
-        //    LabelPrixProduit.setText(prixCalculer + "€/kg");
+
+
+
     }
-    // }
 
 
     public void rechargerVue(){
@@ -120,18 +116,23 @@ public class ProductViewController implements ProductInteraction{
     @Override
     public void nouvelleMasse(String masse) {
         System.out.println(masse);
-        LabelPoidProduit.setText(masse + "g");
-        // Convertir la chaîne 'masse' en double (ou float, si nécessaire)
-        if (masse.length() > 1) {
-            double masseNumerique = Double.parseDouble(masse);
 
-            // Effectuer l'opération de division
-            double prixCalculer = masseNumerique / 120.0;
-            //    LabelPrixProduit.setText(prixCalculer+ "€");
-            // }
-            //else{
-            //   prixCalculer = (prix/1000)*poids;
-            LabelPrixProduit.setText(prixCalculer + "€/kg");
+        // Convertir la chaîne 'masse' en double (ou float, si nécessaire)
+        if (masse.length() > 0) {
+            double masseNumerique = Double.parseDouble(masse);
+            double prixArticle = ((Float) selectedArticle.getPrix()).doubleValue();
+            System.out.println(prixArticle +"prix article");
+            if (selectedArticle.getType() == true) {
+                // Le prix est à la pièce
+                double prixAuPiece = prixArticle * masseNumerique;
+                LabelPrixProduit.setText(prixAuPiece + "€");
+                LabelPoidProduit.setText(masse + "pcs");
+            } else {
+                // Le prix est au kilo
+                double prixAuKilo = prixArticle / masseNumerique;
+                LabelPrixProduit.setText(prixAuKilo + "€/kg");
+                LabelPoidProduit.setText(masse + "g");
+            }
         }else {
             LabelPrixProduit.setText("0€/Kg");
         }
