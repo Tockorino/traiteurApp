@@ -73,7 +73,7 @@ public class NouvelArticleController {
         ajArt.ajouterArticle(catégorie, nomArticle, prix, typePrix);
         closeStage();
         //rafraichir la liste des articles
-        //TraiteurApplication.refreshFXML();
+        TraiteurApplication.refreshFXML();
     }
     public void closeStage(){
         Stage stage = (Stage) TextNom.getScene().getWindow();
