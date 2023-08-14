@@ -20,14 +20,7 @@ public class CommandeViewController implements CommandeInteraction {
 
     private static ArticleListeController articleListeController;
 
-    @FXML
-    public void ajouterPromotion(MouseEvent event) {
-        if (event.getButton() == MouseButton.PRIMARY && event.getClickCount() == 1) {
-            Label labelPromotion = new Label("Promotion -5,00€");
-            labelPromotion.setTextFill(Color.GREEN);
-            VboxListeCommande.getChildren().add(labelPromotion);
-        }
-    }
+
 
 
     public CommandeViewController() {
