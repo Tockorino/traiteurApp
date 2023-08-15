@@ -4,12 +4,10 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.Label;
-import javafx.scene.input.MouseEvent;
-import javafx.scene.input.MouseButton;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import java.io.IOException;
-import javafx.scene.paint.Color;
+
 
 public class CommandeViewController implements CommandeInteraction {
     public static float total = 0;

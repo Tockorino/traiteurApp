@@ -13,6 +13,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="Commun" target="19" />
       <module name="TraiteurFx-Client" target="19" />
       <module name="TraiteurFX-TerminalPaiement" target="19" />
       <module name="TraiteurFx-Vendeur" target="19" />
